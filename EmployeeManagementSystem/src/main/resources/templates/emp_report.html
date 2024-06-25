@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Report</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Employee Records</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>empNo</th>
+                <th>ename</th>
+                <th>sal</th>
+                <th>deptNo</th>
+                <th>location</th>
+                <th>Status</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${empsList}">
+                <td th:text="${employee.empNo}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.sal}"></td>
+                <td th:text="${employee.deptNo}"></td>
+                <td th:text="${employee.location}"></td>
+                <td th:text="${employee.accountStatus}"></td>
+                <td>
+                    <a th:href="@{/editEmp(empNo=${employee.empNo})}">
+                        <img src="images/empEdit.png" width="50" height="50" alt="Edit">
+                    </a>
+                    <a th:href="@{/deleteEmp(empNo=${employee.empNo})}" onclick="return confirm('Do you want to delete the record?')">
+                        <img src="images/deleteEmp.jpg" width="50" height="50" alt="Delete">
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div th:if="${empsList.isEmpty()}">
+        <h2 style="text-align: center; color: fuchsia;">Records Not Found</h2>
+    </div>
+    
+    <br>
+    <h1 style="text-align: center;">
+        <a th:href="@{/addEmp}">
+            Add Employee <img src="images/addEmp.png" width="50" height="50" alt="Add">
+        </a>
+    </h1>
+    
+    <br>
+    <h1 style="text-align: center;">
+        <a th:href="@{/}">
+            Back to Homepage <img src="images/homepage.jpg" width="100" height="50" alt="Home">
+        </a>
+    </h1>
+</body>
+</html>

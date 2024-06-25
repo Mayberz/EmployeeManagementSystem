@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: green;
+            margin-top: 20px;
+        }
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+            margin: 20px auto;
+            width: 50%;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            text-align: left;
+        }
+        table td {
+            background-color: #fff;
+        }
+        input[type="text"], input[type="submit"], button[type="reset"] {
+            padding: 8px;
+            width: calc(100% - 20px); /* Adjust width to fit inside table */
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button[type="reset"]:hover {
+            background-color: #da190b;
+        }
+        span.error-message {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Employee Data</h1>
+    
+    <form action="#" th:action="@{/editEmp}" th:object="${employee}" method="post">
+        <table>
+            <tr>
+                <td>EmpNo:</td>
+                <td><input type="text" th:field="*{empNo}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}"/> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td>Dept No:</td>
+                <td><input type="text" th:field="*{deptNo}"/> <span th:if="${#fields.hasErrors('deptNo')}" th:errors="*{deptNo}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td><input type="text" th:field="*{location}"/> <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input type="text" th:field="*{sal}"/> <span th:if="${#fields.hasErrors('sal')}" th:errors="*{sal}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update"></td>
+                <td><button type="reset">Cancel</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

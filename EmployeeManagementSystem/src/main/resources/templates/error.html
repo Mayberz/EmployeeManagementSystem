@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error! Unable to execute the request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: cyan;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Error! Unable to execute the request</h1>
+    <hr>
+    <table border="1" align="center">
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td th:text="${status}"></td>
+        </tr>
+        <tr>
+            <td>Timestamp</td>
+            <td th:text="${timestamp}"></td>
+        </tr>
+        <tr>
+            <td>Message</td>
+            <td th:text="${message}"></td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td th:text="${type}"></td>
+        </tr>
+        <tr>
+            <td>Path</td>
+            <td th:text="${path}"></td>
+        </tr>
+        <tr>
+            <td>Trace</td>
+            <td th:text="${trace}"></td>
+        </tr>
+    </table>
+</body>
+</html>

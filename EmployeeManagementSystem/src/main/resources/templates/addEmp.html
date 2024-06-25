@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: green;
+        }
+        table {
+            border: 0;
+            background-color: green;
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        table td, table th {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid black;
+        }
+        table th {
+            background-color: yellow;
+            color: black;
+        }
+        table td {
+            background-color: white;
+            color: black;
+        }
+        span.error-message {
+            color: red;
+        }
+        input[type="text"], input[type="submit"], button[type="reset"] {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button[type="reset"]:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Page</h1>
+    
+    <form action="#" th:action="@{/addEmp}" th:object="${employee}" method="post">
+        <table border="0">
+            <tr>
+                <td>Employee name:</td>
+                <td><input type="text" th:field="*{name}"/> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td>Dept No:</td>
+                <td><input type="text" th:field="*{deptNo}"/> <span th:if="${#fields.hasErrors('deptNo')}" th:errors="*{deptNo}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td><input type="text" th:field="*{location}"/> <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input type="text" th:field="*{sal}"/> <span th:if="${#fields.hasErrors('sal')}" th:errors="*{sal}" class="error-message"></span></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Save"></td>
+                <td><button type="reset">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

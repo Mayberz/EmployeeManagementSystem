@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: green;
+            text-align: center;
+        }
+        .report-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .report-link img {
+            max-width: 100px; 
+            height: auto;
+            border: none; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee Report</h1>
+    <div class="report-link">
+        <a th:href="@{/emp_report}">
+            <img src="images/report.png" alt="Employee Report"/>
+        </a>
+    </div>
+</body>
+</html>
